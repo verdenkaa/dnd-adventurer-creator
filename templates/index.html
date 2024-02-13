@@ -8,13 +8,31 @@
 </head>
 
 <body>
-    <div id="content">
-        <embed src="static/images/template.pdf" width="50%" height="1000px" />
-      <!-- <div><img src="static/images/template-1.png" width="50%" height="50%"></div> -->
-    </div>
+<form class="form-inline" method="POST" action="{{ url_for('index') }}">
+    <p>Race: {{chose_race}}</p>
+    <select name="race_select">
+        {% for race in races %}
+        <option>{{race.Name}}</option>
+        {% endfor %}
+    </select>
+    <p>Class: {{chose_class}}</p>
+    <select name="class_select">
+        {% for class in clases %}
+        <option>{{class.Name}}</option>
+        {% endfor %}
+    </select>
 
 
-    <button id="download-pdf">Save PDF</button>
+
+    <button type="submit" class="btn">Apply</button>
+</form>
+
+
+<form class="form-inline" method="POST" action="{{ url_for('download', race=chose_race, clas=chose_class) }}">
+    <button type="submit" class="btn">Save file</button>
+</form>
+
+
 </body>
 
 </html>

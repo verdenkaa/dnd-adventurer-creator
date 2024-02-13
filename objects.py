@@ -7,6 +7,11 @@ from sqlalchemy.orm import Session
 
 Base = declarative_base()
 
-class Template(Base):
-    __tablename__ = "None"
+class Race(Base):
+    __tablename__ = "Race"
+    Name = Column(String, primary_key=True)
+
+class Class(Base):
+    __tablename__ = "Class"
+    Name = Column(String, primary_key=True)
 
