@@ -1,6 +1,6 @@
 from pypdf import PdfReader, PdfWriter
 
-def pdf_make(race, clas):
+def pdf_make(race, clas, path):
     reader = PdfReader("./static/images/template.pdf")  # шаблон которы не трогаем, сохраняем записи в другой файл
     writer = PdfWriter()
 
@@ -15,7 +15,7 @@ def pdf_make(race, clas):
         writer.pages[0], {'ClassLevel': clas, 'Race ': race}
     )
     
-    with open("./static/images/template_none_time.pdf", "wb") as output_stream:
+    with open(path, "wb") as output_stream:
         writer.write(output_stream)  # сохраняем
 
 
