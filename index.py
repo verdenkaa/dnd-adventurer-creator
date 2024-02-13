@@ -22,7 +22,7 @@ def index():
 def download():
     race = request.args.get('race')  # парсим аргументы
     clas = request.args.get('clas')
-    path = "/tmp/template_none_time.pdf"
+    path = "/tmp/template_none_time.pdf"  # для локального тестирования скачвания поставить точку перед /
     pdf_make(race=race, clas=clas, path=path)  # меняем в шаблоне
     return send_file(path, as_attachment=True)  # скачиваем
 
